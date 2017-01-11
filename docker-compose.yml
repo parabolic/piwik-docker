@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  piwik:
+    build: .
+    image: piwik_local
+    ports:
+      - 80:80
+    links:
+      - db
+  db:
+    env_file: .db_env
+    image: mysql
