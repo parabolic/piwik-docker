@@ -14,6 +14,9 @@ cd ${PIWIK_DIR}
 ./console config:set --section="General" --key="proxy_client_headers[]" --value="${PROXY_CLIENT_HEADERS}"
 ./console config:set --section="General" --key="salt" --value="${SALT}"
 
+# Takes care of the db upgrade when chaging version
+./console core:update
+
 chown -R www-data:www-data ${PIWIK_DIR}
 
 # Start apache in the foreground
