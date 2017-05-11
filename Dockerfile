@@ -1,6 +1,7 @@
 FROM php:7.1.0-apache
 
-ENV PIWIK_VERSION 3.0.1
+ARG PIWIK_VERSION
+ENV PIWIK_VERSION=${PIWIK_VERSION}
 
 RUN apt-get update -qq
 RUN apt-get dist-upgrade -y
